@@ -20,7 +20,10 @@ export default function Dashboard() {
     }
   }, [isLoaded, isSignedIn, user, router]);
 
-  if (!isLoaded || !authorized) return null;
+  // Show nothing while loading or if not authorized
+  if (!isLoaded) return null;
+  if (!isSignedIn) return null;
+  if (!authorized) return null;
 
   return (
     <div>
